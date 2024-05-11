@@ -21,13 +21,12 @@ if (isset($_SESSION["user"])) {
            $fullName = $_POST["fullname"];
            $email = $_POST["email"];
            $password = $_POST["password"];
-           $passwordRepeat = $_POST["repeat_password"];
            
            $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
            $errors = array();
            
-           if (empty($fullName) OR empty($email) OR empty($password) OR empty($passwordRepeat)) {
+           if (empty($fullName) OR empty($email) OR empty($password)) {
             array_push($errors,"All fields are required");
            }
            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -35,9 +34,6 @@ if (isset($_SESSION["user"])) {
            }
            if (strlen($password)<6) {
             array_push($errors,"Password must be at least 6 charactes long");
-           }
-           if ($password!==$passwordRepeat) {
-            array_push($errors,"Password does not match");
            }
            require_once "db.php";
            $sql = "SELECT * FROM users WHERE email = '$email'";
@@ -75,9 +71,6 @@ if (isset($_SESSION["user"])) {
             </div>
             <div class="form-group">
                 <input type="password" class="form-control" name="password" placeholder="Password:">
-            </div>
-            <div class="form-group">
-                <input type="password" class="form-control" name="repeat_password" placeholder="Repeat Password:">
             </div>
             <div class="form-btn">
                 <input type="submit" class="btn btn-primary" value="Sign Up" name="submit">
