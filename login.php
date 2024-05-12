@@ -32,10 +32,10 @@ if (isset($_SESSION["user"])) {
                     header("Location: index.php");
                     die();
                 }else{
-                    echo "<div class='alert alert-danger'>Password does not match</div>";
+                    echo "<div class='alert'>Password does not match</div>";
                 }
             }else{
-                echo "<div class='alert alert-danger'>Email does not match</div>";
+                echo "<div class='alert'>Email does not match</div>";
             }
         }
         ?>

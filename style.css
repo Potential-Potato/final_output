@@ -49,14 +49,11 @@ body {
     padding: 10px;
     margin-bottom: 20px;
     border-radius: 5px;
-}
-
-.alert-danger {
     background-color: #f8d7da; /* Light red background for danger alerts */
     color: #721c24; /* Dark red text */
 }
 
-.alert-success {
+.alert-s {
     background-color: #d4edda; /* Light green background for success alerts */
     color: #155724; /* Dark green text */
 }
